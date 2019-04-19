@@ -1,1 +1,1 @@
-symbnb_v2
+symbnb
