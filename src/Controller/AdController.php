@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Ad;
+use App\Form\AdType;
 use App\Repository\AdRepository;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,22 +26,55 @@ class AdController extends AbstractController
     }
 
     /**
+     * Permet de créer une annonce
+     * 
+     * @Route("/ads/new", name="ads_create")
+     * 
+     * @return Response
+     */
+    // Request permet de récupérer les informations envoyé via le formulaire
+    // Le manager manipule les enregistrement en BDD
+    public function create(Request $request, ObjectManager $manager) 
+    {   
+        //Création d'une nouvelle annonce
+        $ad = new Ad();
+        //Import du formulaire /src/form/AdType
+        $form = $this->createForm(AdType::class, $ad);
+        //La fonction handleRequest() permet de parcourir la requête et d’extraire les information du formulaire
+        $form->handleRequest($request);
+        //Si le formulaire est soumis et validé
+        if($form->isSubmitted() && $form->isValid()){
+            //Save ma requête SQL
+            $manager->persist($ad);
+            //Envoie ma requête SQL
+            $manager->flush();
+            // redirectToRoute créé une réponse qui demande une redirection sur une autre page
+
+            $this->addFlash(
+                'success',
+                "L'annonce {$ad->getTitle()} a bien été enregistrée"
+            );
+
+            return $this->redirectToRoute('ads_show', [
+                'slug' => $ad->getSlug()
+            ]);
+        }
+
+        return $this->render('ad/new.html.twig',[
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
      * Permet d'afficher une annonce
      * 
      * @Route("/ads/{slug}", name="ads_show")
      * 
      * @return Response
      */
-    // public function show($slug, AdRepository $repo)
-    // {
-    //     $ad = $repo->findOneBySlug($slug);
-    //     return $this->render('ad/show.html.twig', [
-    //         'ad' => $ad
-    //     ]);
-    // }
     public function show(Ad $ad)
     //je récupère l'annonce qui correspond au slug
-    { 
+    {   
         return $this->render('ad/show.html.twig', [
             'ad' => $ad
         ]);

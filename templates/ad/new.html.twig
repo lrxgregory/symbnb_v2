@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une annonce{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Créer une nouvelle annonce</h1>
+    {# Permet d’afficher la balise ouvrante <form> avec l’action et la méthode #}
+    {{ form_start(form) }}
+    {# Affiche un champ ou un groupe de champ #}
+    {{ form_widget(form)}}
+    {# Affiche la fin du formulaire et incluse un jeton CSRF pour la sécurité #}
+    <button type="submit" class="btn btn-primary">Créer la nouvelle annonce</button>
+    {{ form_end(form) }} 
+</div>
+{% endblock %}

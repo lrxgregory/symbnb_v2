@@ -56,44 +56,26 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         // line 10
         echo "    </head>
     <body>
-        <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
-            <a class=\"navbar-brand\" href=\"";
-        // line 13
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
-        echo "\">SymBNB</a>
-            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-                <span class=\"navbar-toggler-icon\"></span>
-            </button>
-
-            <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">
-                <ul class=\"navbar-nav mr-auto\">
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"";
-        // line 21
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
-        echo "\">Accueil</a>
-                </li>
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"";
-        // line 24
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ads_index");
-        echo "\">Annonces</a>
-                </li>
-                </ul>
-                <ul class=\"navbar-nav ml-auto\">
-                    <li class=\"nav-item\">
-                    <a href=\"#\" class=\"nav-link\">Mon compte</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
         ";
-        // line 34
+        // line 12
+        $this->loadTemplate("partials/header.html.twig", "base.html.twig", 12)->display($context);
+        // line 13
+        echo "
+
+        ";
+        // line 15
         $this->displayBlock('body', $context, $blocks);
-        // line 35
-        echo "        ";
+        // line 16
+        echo "
+        ";
+        // line 17
+        $this->loadTemplate("partials/footer.html.twig", "base.html.twig", 17)->display($context);
+        // line 18
+        echo "
+        ";
+        // line 19
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 40
+        // line 24
         echo "    </body>
 </html>
 ";
@@ -144,7 +126,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
 
     }
 
-    // line 34
+    // line 15
     public function block_body($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -161,7 +143,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
 
     }
 
-    // line 35
+    // line 19
     public function block_javascripts($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -170,7 +152,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 36
+        // line 20
         echo "        <script src=\"/js/jquery.min.js\"></script>
         <script src=\"/js/popper.min.js\"></script>
         <script src=\"/js/bootstrap.min.js\"></script>
@@ -195,7 +177,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
 
     public function getDebugInfo()
     {
-        return array (  174 => 36,  165 => 35,  148 => 34,  136 => 7,  127 => 6,  109 => 5,  97 => 40,  94 => 35,  92 => 34,  79 => 24,  73 => 21,  62 => 13,  57 => 10,  55 => 6,  51 => 5,  45 => 1,);
+        return array (  156 => 20,  147 => 19,  130 => 15,  118 => 7,  109 => 6,  91 => 5,  79 => 24,  77 => 19,  74 => 18,  72 => 17,  69 => 16,  67 => 15,  63 => 13,  61 => 12,  57 => 10,  55 => 6,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -211,29 +193,13 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         {% endblock %}
     </head>
     <body>
-        <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">
-            <a class=\"navbar-brand\" href=\"{{ path('homepage')}}\">SymBNB</a>
-            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor01\" aria-controls=\"navbarColor01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-                <span class=\"navbar-toggler-icon\"></span>
-            </button>
+        {% include 'partials/header.html.twig' %}
 
-            <div class=\"collapse navbar-collapse\" id=\"navbarColor01\">
-                <ul class=\"navbar-nav mr-auto\">
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"{{ path('homepage')}}\">Accueil</a>
-                </li>
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"{{ path('ads_index')}}\">Annonces</a>
-                </li>
-                </ul>
-                <ul class=\"navbar-nav ml-auto\">
-                    <li class=\"nav-item\">
-                    <a href=\"#\" class=\"nav-link\">Mon compte</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+
         {% block body %}{% endblock %}
+
+        {% include 'partials/footer.html.twig' %}
+
         {% block javascripts %}
         <script src=\"/js/jquery.min.js\"></script>
         <script src=\"/js/popper.min.js\"></script>
