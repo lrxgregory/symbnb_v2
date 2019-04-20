@@ -75,7 +75,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         ";
         // line 19
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 24
+        // line 25
         echo "    </body>
 </html>
 ";
@@ -153,7 +153,8 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
         // line 20
-        echo "        <script src=\"/js/jquery.min.js\"></script>
+        echo "        <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\" integrity=\"sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=\" crossorigin=\"anonymous\"></script>
+        <script src=\"/js/jquery.min.js\"></script>
         <script src=\"/js/popper.min.js\"></script>
         <script src=\"/js/bootstrap.min.js\"></script>
         ";
@@ -177,7 +178,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
 
     public function getDebugInfo()
     {
-        return array (  156 => 20,  147 => 19,  130 => 15,  118 => 7,  109 => 6,  91 => 5,  79 => 24,  77 => 19,  74 => 18,  72 => 17,  69 => 16,  67 => 15,  63 => 13,  61 => 12,  57 => 10,  55 => 6,  51 => 5,  45 => 1,);
+        return array (  156 => 20,  147 => 19,  130 => 15,  118 => 7,  109 => 6,  91 => 5,  79 => 25,  77 => 19,  74 => 18,  72 => 17,  69 => 16,  67 => 15,  63 => 13,  61 => 12,  57 => 10,  55 => 6,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -201,6 +202,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         {% include 'partials/footer.html.twig' %}
 
         {% block javascripts %}
+        <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\" integrity=\"sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=\" crossorigin=\"anonymous\"></script>
         <script src=\"/js/jquery.min.js\"></script>
         <script src=\"/js/popper.min.js\"></script>
         <script src=\"/js/bootstrap.min.js\"></script>

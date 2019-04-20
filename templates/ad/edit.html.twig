@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form'ad/_collection.html.twig' %}
+
+{% block title %}Edition d'une annonce{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Modifier l'annonce {{ ad.title }}</h1>
+        {# Permet d’afficher la balise ouvrante <form> avec l’action et la méthode #}
+        {{ form_start(form) }}
+        {# Affiche un champ ou un groupe de champ #}
+        {{ form_widget(form)}}
+        {# Affiche la fin du formulaire et incluse un jeton CSRF pour la sécurité #}
+        <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+        {{ form_end(form) }} 
+    </div>
+{% endblock %}
+
+
+
+
+
+{% block javascripts %}
+<script
+src="https://code.jquery.com/jquery-3.4.0.min.js"
+integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+crossorigin="anonymous"></script>
+<script src="/js/ad.js"></script>
+{% endblock %}

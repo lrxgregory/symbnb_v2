@@ -1,10 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Création d'une annonce{% endblock %}
+{# Dit a twig d'utiliser le theme définit dans le block ad images widge/t #}
+{% form_theme form 'ad/_collection.html.twig' %}
 
 {% block body %}
 <div class="container">
-    <h1>Créer une nouvelle annonce</h1>
+    <h1>Modifier une annonce</h1>
     {# Permet d’afficher la balise ouvrante <form> avec l’action et la méthode #}
     {{ form_start(form) }}
     {# Affiche un champ ou un groupe de champ #}
@@ -13,4 +15,13 @@
     <button type="submit" class="btn btn-primary">Créer la nouvelle annonce</button>
     {{ form_end(form) }} 
 </div>
+{% endblock %}
+
+
+{% block javascripts %}
+<script
+src="https://code.jquery.com/jquery-3.4.0.min.js"
+integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+crossorigin="anonymous"></script>
+<script src="/js/ad.js"></script>
 {% endblock %}

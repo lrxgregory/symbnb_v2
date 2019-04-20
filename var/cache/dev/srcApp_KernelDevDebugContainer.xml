@@ -411,6 +411,9 @@
     <service id="App\Form\AdType" class="App\Form\AdType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\ImageType" class="App\Form\ImageType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Repository\AdRepository" class="App\Repository\AdRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -681,6 +684,7 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\AdType</argument>
+        <argument>App\Form\ImageType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type\EntityType</argument>
@@ -925,7 +929,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.X5Y_d.l"/>
+      <argument type="service" id=".service_locator.yXn_BFj"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4308,6 +4312,8 @@
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AdType" class="App\Form\AdType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\AdType" class="App\Form\AdType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ImageType" class="App\Form\ImageType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ImageType" class="App\Form\ImageType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\AdRepository" class="App\Repository\AdRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\AdRepository" class="App\Repository\AdRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ImageRepository" class="App\Repository\ImageRepository" autowire="true" abstract="true"/>
@@ -4486,19 +4492,28 @@
         <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
+    <service id=".service_locator.0c_I6Iz" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="ad" type="service" id=".errored..service_locator.0c_I6Iz.App\Entity\Ad"/>
+        <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
     <service id=".service_locator.5BH.j.y" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="ad" type="service" id=".errored..service_locator.5BH.j.y.App\Entity\Ad"/>
       </argument>
     </service>
-    <service id=".service_locator.QSTnspq" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.kGMx7VB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdController::create" type="service" id=".service_locator.Txvqv4R"/>
+        <argument key="App\Controller\AdController::edit" type="service" id=".service_locator.0c_I6Iz"/>
         <argument key="App\Controller\AdController::index" type="service" id=".service_locator.m2hZxMx"/>
         <argument key="App\Controller\AdController::show" type="service" id=".service_locator.5BH.j.y"/>
         <argument key="App\Controller\AdController:create" type="service" id=".service_locator.Txvqv4R"/>
+        <argument key="App\Controller\AdController:edit" type="service" id=".service_locator.0c_I6Iz"/>
         <argument key="App\Controller\AdController:index" type="service" id=".service_locator.m2hZxMx"/>
         <argument key="App\Controller\AdController:show" type="service" id=".service_locator.5BH.j.y"/>
       </argument>
@@ -4572,10 +4587,11 @@
       <argument type="service" id="debug.argument_resolver.variadic.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.X5Y_d.l" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.yXn_BFj" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\AdType" type="service" id="App\Form\AdType"/>
+        <argument key="App\Form\ImageType" type="service" id="App\Form\ImageType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
@@ -4870,10 +4886,11 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.QSTnspq"/>
+      <argument type="service" id=".service_locator.kGMx7VB"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
+    <service id=".errored..service_locator.0c_I6Iz.App\Entity\Ad" class="App\Entity\Ad"/>
     <service id=".errored..service_locator.5BH.j.y.App\Entity\Ad" class="App\Entity\Ad"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.KwgMclN"/>
@@ -5204,7 +5221,7 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.QSTnspq"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.kGMx7VB"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="validator" alias="debug.validator" public="true"/>

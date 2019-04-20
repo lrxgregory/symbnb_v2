@@ -34,16 +34,22 @@ class AdController extends AbstractController
      */
     // Request permet de récupérer les informations envoyé via le formulaire
     // Le manager manipule les enregistrement en BDD
-    public function create(Request $request, ObjectManager $manager) 
-    {   
+    public function create(Request $request, ObjectManager $manager)
+    {
         //Création d'une nouvelle annonce
         $ad = new Ad();
+
         //Import du formulaire /src/form/AdType
         $form = $this->createForm(AdType::class, $ad);
         //La fonction handleRequest() permet de parcourir la requête et d’extraire les information du formulaire
         $form->handleRequest($request);
-        //Si le formulaire est soumis et validé
+         //Si le formulaire est soumis et v alidé
         if($form->isSubmitted() && $form->isValid()){
+
+            foreach($ad->getImages() as $image){
+                $image->setAd($ad);
+                $manager->persist($image);
+            }
             //Save ma requête SQL
             $manager->persist($ad);
             //Envoie ma requête SQL
@@ -65,6 +71,50 @@ class AdController extends AbstractController
         ]);
     }
 
+
+    /**
+     * Permet d'afficher le formulaire d'édition
+     * 
+     * @Route("/ads/{slug}/edit", name="ads_edit")
+     * 
+     * @return response
+     */
+    public function edit(Ad $ad, Request $request, ObjectManager $manager){
+        //Import du formulaire /src/form/AdType
+        $form = $this->createForm(AdType::class, $ad);
+        //La fonction handleRequest() permet de parcourir la requête et d’extraire les information du formulaire
+        $form->handleRequest($request);
+
+         //Si le formulaire est soumis et v alidé
+        if($form->isSubmitted() && $form->isValid()){
+
+            foreach($ad->getImages() as $image){
+                $image->setAd($ad);
+                $manager->persist($image);
+            }
+            //Save ma requête SQL
+            $manager->persist($ad);
+            //Envoie ma requête SQL
+            $manager->flush();
+            // redirectToRoute créé une réponse qui demande une redirection sur une autre page
+
+            $this->addFlash(
+                'success',
+                "Les modifications de l'annonce {$ad->getTitle()} a bien été enregistrée"
+            );
+
+            return $this->redirectToRoute('ads_show', [
+                'slug' => $ad->getSlug()
+            ]);
+        }
+
+
+        return $this->render("ad/edit.html.twig", [
+            'form' => $form->createView(),
+            'ad' => $ad
+        ]);
+    }
+
     /**
      * Permet d'afficher une annonce
      * 
@@ -74,7 +124,7 @@ class AdController extends AbstractController
      */
     public function show(Ad $ad)
     //je récupère l'annonce qui correspond au slug
-    {   
+    {
         return $this->render('ad/show.html.twig', [
             'ad' => $ad
         ]);
