@@ -37,11 +37,13 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         'account_register' => [[], ['_controller' => 'App\\Controller\\AccountController::register'], [], [['text', '/register']], [], []],
         'account_profile' => [[], ['_controller' => 'App\\Controller\\AccountController::profile'], [], [['text', '/account/profile']], [], []],
         'account_password' => [[], ['_controller' => 'App\\Controller\\AccountController::updatePassword'], [], [['text', '/account/password-update']], [], []],
+        'account_index' => [[], ['_controller' => 'App\\Controller\\AccountController::myAccount'], [], [['text', '/account']], [], []],
         'ads_index' => [[], ['_controller' => 'App\\Controller\\AdController::index'], [], [['text', '/ads']], [], []],
         'ads_create' => [[], ['_controller' => 'App\\Controller\\AdController::create'], [], [['text', '/ads/new']], [], []],
         'ads_edit' => [['slug'], ['_controller' => 'App\\Controller\\AdController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'slug', true], ['text', '/ads']], [], []],
         'ads_show' => [['slug'], ['_controller' => 'App\\Controller\\AdController::show'], [], [['variable', '/', '[^/]++', 'slug', true], ['text', '/ads']], [], []],
         'homepage' => [[], ['_controller' => 'App\\Controller\\HomeController::home'], [], [['text', '/']], [], []],
+        'user_show' => [['slug'], ['_controller' => 'App\\Controller\\UserController::index'], [], [['variable', '/', '[^/]++', 'slug', true], ['text', '/user']], [], []],
     ];
         }
     }

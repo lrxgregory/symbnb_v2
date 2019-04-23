@@ -412,6 +412,13 @@
         <argument type="service" id=".service_locator.KTVqfp6.App\Controller\HomeController"/>
       </call>
     </service>
+    <service id="App\Controller\UserController" class="App\Controller\UserController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\UserController"/>
+      </call>
+    </service>
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
       <argument type="service" id="security.user_password_encoder.generic"/>
@@ -4457,6 +4464,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\AccountType" class="App\Form\AccountType" autowire="true" abstract="true"/>
@@ -4679,7 +4689,13 @@
         <argument key="ad" type="service" id=".errored..service_locator.5BH.j.y.App\Entity\Ad"/>
       </argument>
     </service>
-    <service id=".service_locator.X1C05UE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.wypGnUQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="user" type="service" id=".errored..service_locator.wypGnUQ.App\Entity\User"/>
+      </argument>
+    </service>
+    <service id=".service_locator.tSLwrAg" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AccountController::login" type="service" id=".service_locator.oHXyyai"/>
@@ -4690,6 +4706,7 @@
         <argument key="App\Controller\AdController::edit" type="service" id=".service_locator.0c_I6Iz"/>
         <argument key="App\Controller\AdController::index" type="service" id=".service_locator.m2hZxMx"/>
         <argument key="App\Controller\AdController::show" type="service" id=".service_locator.5BH.j.y"/>
+        <argument key="App\Controller\UserController::index" type="service" id=".service_locator.wypGnUQ"/>
         <argument key="App\Controller\AccountController:login" type="service" id=".service_locator.oHXyyai"/>
         <argument key="App\Controller\AccountController:profile" type="service" id=".service_locator.Txvqv4R"/>
         <argument key="App\Controller\AccountController:register" type="service" id=".service_locator.czKK4py"/>
@@ -4698,6 +4715,7 @@
         <argument key="App\Controller\AdController:edit" type="service" id=".service_locator.0c_I6Iz"/>
         <argument key="App\Controller\AdController:index" type="service" id=".service_locator.m2hZxMx"/>
         <argument key="App\Controller\AdController:show" type="service" id=".service_locator.5BH.j.y"/>
+        <argument key="App\Controller\UserController:index" type="service" id=".service_locator.wypGnUQ"/>
       </argument>
     </service>
     <service id=".service_locator.37xBtZ2" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -4988,6 +5006,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.KTVqfp6" method="withContext"/>
     </service>
+    <service id=".service_locator.KTVqfp6.App\Controller\UserController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\UserController"/>
+      <argument>App\Controller\UserController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.KTVqfp6" method="withContext"/>
+    </service>
     <service id=".service_locator._pu.0Tb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5080,12 +5104,13 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.X1C05UE"/>
+      <argument type="service" id=".service_locator.tSLwrAg"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id=".errored..service_locator.0c_I6Iz.App\Entity\Ad" class="App\Entity\Ad"/>
     <service id=".errored..service_locator.5BH.j.y.App\Entity\Ad" class="App\Entity\Ad"/>
+    <service id=".errored..service_locator.wypGnUQ.App\Entity\User" class="App\Entity\User"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.KwgMclN"/>
       <argument type="collection">
@@ -5414,7 +5439,7 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.X1C05UE"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.tSLwrAg"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="validator" alias="debug.validator" public="true"/>

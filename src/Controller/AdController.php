@@ -50,6 +50,10 @@ class AdController extends AbstractController
                 $image->setAd($ad);
                 $manager->persist($image);
             }
+
+            //Auteur de l'annonce
+            $ad->setAuthor($this->getUser());
+
             //Save ma requête SQL
             $manager->persist($ad);
             //Envoie ma requête SQL
