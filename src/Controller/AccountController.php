@@ -7,15 +7,16 @@ use App\Form\AccountType;
 use App\Entity\PasswordUpdate;
 use App\Form\RegistrationType;
 use App\Form\PasswordUpdateType;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Form\FormError;
 
 class AccountController extends AbstractController
 {
@@ -60,7 +61,7 @@ class AccountController extends AbstractController
         $user = new User();
 
         $form = $this->createForm(RegistrationType::class, $user);
- 
+
         //je demande a mon formulaire de gérer la requête 
         $form->handleRequest($request);
 
@@ -87,6 +88,7 @@ class AccountController extends AbstractController
      * Permet d'afficher in formulaire de modification du profil 
      * 
      * @Route("/account/profile", name="account_profile")
+     * @IsGranted("ROLE_USER")
      *
      * @return Response
      */
@@ -117,6 +119,7 @@ class AccountController extends AbstractController
      * Permet de modifier le mot de passe
      * 
      * @Route("/account/password-update", name="account_password")
+     * @IsGranted("ROLE_USER")
      * 
      * @return Response
      */
@@ -161,6 +164,7 @@ class AccountController extends AbstractController
      * Permet d'afficher le profil d'utilisateur connecté
      * 
      * @Route("/account", name="account_index")
+     * @IsGranted("ROLE_USER")
      * 
      * @return Response
      */

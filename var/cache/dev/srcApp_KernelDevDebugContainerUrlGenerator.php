@@ -42,6 +42,7 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         'ads_create' => [[], ['_controller' => 'App\\Controller\\AdController::create'], [], [['text', '/ads/new']], [], []],
         'ads_edit' => [['slug'], ['_controller' => 'App\\Controller\\AdController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'slug', true], ['text', '/ads']], [], []],
         'ads_show' => [['slug'], ['_controller' => 'App\\Controller\\AdController::show'], [], [['variable', '/', '[^/]++', 'slug', true], ['text', '/ads']], [], []],
+        'ads_delete' => [['slug'], ['_controller' => 'App\\Controller\\AdController::delete'], [], [['text', '/delete'], ['variable', '/', '[^/]++', 'slug', true], ['text', '/ads']], [], []],
         'homepage' => [[], ['_controller' => 'App\\Controller\\HomeController::home'], [], [['text', '/']], [], []],
         'user_show' => [['slug'], ['_controller' => 'App\\Controller\\UserController::index'], [], [['variable', '/', '[^/]++', 'slug', true], ['text', '/user']], [], []],
     ];
