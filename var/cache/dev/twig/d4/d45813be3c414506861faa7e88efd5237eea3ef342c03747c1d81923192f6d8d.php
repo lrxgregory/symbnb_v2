@@ -53,29 +53,29 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         ";
         // line 6
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 10
+        // line 11
         echo "    </head>
     <body>
         ";
-        // line 12
-        $this->loadTemplate("partials/header.html.twig", "base.html.twig", 12)->display($context);
         // line 13
+        $this->loadTemplate("partials/header.html.twig", "base.html.twig", 13)->display($context);
+        // line 14
         echo "
 
         ";
-        // line 15
-        $this->displayBlock('body', $context, $blocks);
         // line 16
-        echo "
-        ";
+        $this->displayBlock('body', $context, $blocks);
         // line 17
-        $this->loadTemplate("partials/footer.html.twig", "base.html.twig", 17)->display($context);
-        // line 18
         echo "
         ";
+        // line 18
+        $this->loadTemplate("partials/footer.html.twig", "base.html.twig", 18)->display($context);
         // line 19
+        echo "
+        ";
+        // line 20
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 25
+        // line 27
         echo "    </body>
 </html>
 ";
@@ -117,6 +117,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         // line 7
         echo "        <link rel=\"stylesheet\" href=\"/css/bootstrap.min.css\">
         <link rel=\"stylesheet\" href=\"/css/app.css\">
+        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css\" />
         ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -126,7 +127,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
 
     }
 
-    // line 15
+    // line 16
     public function block_body($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -143,7 +144,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
 
     }
 
-    // line 19
+    // line 20
     public function block_javascripts($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -152,11 +153,12 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 20
+        // line 21
         echo "        <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\" integrity=\"sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=\" crossorigin=\"anonymous\"></script>
         <script src=\"/js/jquery.min.js\"></script>
         <script src=\"/js/popper.min.js\"></script>
         <script src=\"/js/bootstrap.min.js\"></script>
+        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js\"></script>
         ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -178,7 +180,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
 
     public function getDebugInfo()
     {
-        return array (  156 => 20,  147 => 19,  130 => 15,  118 => 7,  109 => 6,  91 => 5,  79 => 25,  77 => 19,  74 => 18,  72 => 17,  69 => 16,  67 => 15,  63 => 13,  61 => 12,  57 => 10,  55 => 6,  51 => 5,  45 => 1,);
+        return array (  157 => 21,  148 => 20,  131 => 16,  118 => 7,  109 => 6,  91 => 5,  79 => 27,  77 => 20,  74 => 19,  72 => 18,  69 => 17,  67 => 16,  63 => 14,  61 => 13,  57 => 11,  55 => 6,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -191,6 +193,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         {% block stylesheets %}
         <link rel=\"stylesheet\" href=\"/css/bootstrap.min.css\">
         <link rel=\"stylesheet\" href=\"/css/app.css\">
+        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css\" />
         {% endblock %}
     </head>
     <body>
@@ -206,6 +209,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         <script src=\"/js/jquery.min.js\"></script>
         <script src=\"/js/popper.min.js\"></script>
         <script src=\"/js/bootstrap.min.js\"></script>
+        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js\"></script>
         {% endblock %}
     </body>
 </html>
