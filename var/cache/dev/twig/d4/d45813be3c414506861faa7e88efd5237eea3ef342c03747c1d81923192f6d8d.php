@@ -50,32 +50,33 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
+        <meta name=\"viewport\" content=\"width=device-width, user-scalable=no\">
         ";
-        // line 6
+        // line 7
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 11
+        // line 13
         echo "    </head>
     <body>
         ";
-        // line 13
-        $this->loadTemplate("partials/header.html.twig", "base.html.twig", 13)->display($context);
-        // line 14
+        // line 15
+        $this->loadTemplate("partials/header.html.twig", "base.html.twig", 15)->display($context);
+        // line 16
         echo "
 
         ";
-        // line 16
-        $this->displayBlock('body', $context, $blocks);
-        // line 17
-        echo "
-        ";
         // line 18
-        $this->loadTemplate("partials/footer.html.twig", "base.html.twig", 18)->display($context);
+        $this->displayBlock('body', $context, $blocks);
         // line 19
         echo "
         ";
         // line 20
+        $this->loadTemplate("partials/footer.html.twig", "base.html.twig", 20)->display($context);
+        // line 21
+        echo "
+        ";
+        // line 22
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 27
+        // line 29
         echo "    </body>
 </html>
 ";
@@ -105,7 +106,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
 
     }
 
-    // line 6
+    // line 7
     public function block_stylesheets($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -114,10 +115,11 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 7
+        // line 8
         echo "        <link rel=\"stylesheet\" href=\"/css/bootstrap.min.css\">
         <link rel=\"stylesheet\" href=\"/css/app.css\">
         <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css\" />
+        <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\" integrity=\"sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf\" crossorigin=\"anonymous\">
         ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -127,7 +129,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
 
     }
 
-    // line 16
+    // line 18
     public function block_body($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -144,7 +146,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
 
     }
 
-    // line 20
+    // line 22
     public function block_javascripts($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -153,7 +155,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 21
+        // line 23
         echo "        <script src=\"https://code.jquery.com/jquery-3.4.0.min.js\" integrity=\"sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=\" crossorigin=\"anonymous\"></script>
         <script src=\"/js/jquery.min.js\"></script>
         <script src=\"/js/popper.min.js\"></script>
@@ -180,7 +182,7 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
 
     public function getDebugInfo()
     {
-        return array (  157 => 21,  148 => 20,  131 => 16,  118 => 7,  109 => 6,  91 => 5,  79 => 27,  77 => 20,  74 => 19,  72 => 18,  69 => 17,  67 => 16,  63 => 14,  61 => 13,  57 => 11,  55 => 6,  51 => 5,  45 => 1,);
+        return array (  159 => 23,  150 => 22,  133 => 18,  119 => 8,  110 => 7,  92 => 5,  80 => 29,  78 => 22,  75 => 21,  73 => 20,  70 => 19,  68 => 18,  64 => 16,  62 => 15,  58 => 13,  56 => 7,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -190,10 +192,12 @@ class __TwigTemplate_67186ca72975a990606fcf59e24a9871c32a2982667a3af162d5601cbfa
     <head>
         <meta charset=\"UTF-8\">
         <title>SymBNB - {% block title %}Bienvenue{% endblock %}</title>
+        <meta name=\"viewport\" content=\"width=device-width, user-scalable=no\">
         {% block stylesheets %}
         <link rel=\"stylesheet\" href=\"/css/bootstrap.min.css\">
         <link rel=\"stylesheet\" href=\"/css/app.css\">
         <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css\" />
+        <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.8.1/css/all.css\" integrity=\"sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf\" crossorigin=\"anonymous\">
         {% endblock %}
     </head>
     <body>

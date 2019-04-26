@@ -92,7 +92,7 @@ class __TwigTemplate_54f41f93923d8c9259fd29e37b5249b20880c50fdb7688ece2da5dc2ac5
         </p>
     </div>
 
-        <h2 class=\"h1 mt-3 mb-4\">Nos appartements stars</h2>
+        <h2 class=\"h1 my-5\">Nos appartements stars</h2>
 
         <div class=\"row\">
             <div class=\"col-md-4\">
@@ -145,7 +145,7 @@ class __TwigTemplate_54f41f93923d8c9259fd29e37b5249b20880c50fdb7688ece2da5dc2ac5
             </div>
         </div>
 
-        <h2 class=\"h1 mt-3 mb-4\">Nos propriétaires stars</h2>
+        <h2 class=\"h1 my-5\">Nos propriétaires stars</h2>
 
         <div class=\"row\">
             <div class=\"col\">
@@ -220,7 +220,7 @@ class __TwigTemplate_54f41f93923d8c9259fd29e37b5249b20880c50fdb7688ece2da5dc2ac5
         </p>
     </div>
 
-        <h2 class=\"h1 mt-3 mb-4\">Nos appartements stars</h2>
+        <h2 class=\"h1 my-5\">Nos appartements stars</h2>
 
         <div class=\"row\">
             <div class=\"col-md-4\">
@@ -273,7 +273,7 @@ class __TwigTemplate_54f41f93923d8c9259fd29e37b5249b20880c50fdb7688ece2da5dc2ac5
             </div>
         </div>
 
-        <h2 class=\"h1 mt-3 mb-4\">Nos propriétaires stars</h2>
+        <h2 class=\"h1 my-5\">Nos propriétaires stars</h2>
 
         <div class=\"row\">
             <div class=\"col\">
@@ -307,6 +307,6 @@ class __TwigTemplate_54f41f93923d8c9259fd29e37b5249b20880c50fdb7688ece2da5dc2ac5
 </div>
     
 {% endblock %}
-", "home/index.html.twig", "/home/greg/Documents/dev/symbnb/templates/home/index.html.twig");
+", "home/index.html.twig", "/home/greg/Documents/dev/symbnb_v2/templates/home/index.html.twig");
     }
 }
