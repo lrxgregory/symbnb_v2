@@ -518,6 +518,11 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Service\PaginationService" class="App\Service\PaginationService" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="twig"/>
+      <argument type="service" id="request_stack"/>
+    </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -4969,9 +4974,17 @@
         <argument key="ad" type="service" id=".errored..service_locator.5BH.j.y.App\Entity\Ad"/>
       </argument>
     </service>
-    <service id=".service_locator.6lg50HX" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.lIFg_qI" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="pagination" type="service" id="App\Service\PaginationService"/>
+        <argument key="repo" type="service" id="App\Repository\AdRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.SIDv2FW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="pagination" type="service" id="App\Service\PaginationService"/>
         <argument key="repo" type="service" id="App\Repository\BookingRepository"/>
       </argument>
     </service>
@@ -4982,9 +4995,10 @@
         <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
-    <service id=".service_locator.BaQbU7t" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.7zQ24yQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="pagination" type="service" id="App\Service\PaginationService"/>
         <argument key="repo" type="service" id="App\Repository\CommentRepository"/>
       </argument>
     </service>
@@ -5001,7 +5015,7 @@
         <argument key="user" type="service" id=".errored..service_locator.wypGnUQ.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.3KyQoqu" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Qw15n6a" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AccountController::login" type="service" id=".service_locator.oHXyyai"/>
@@ -5016,13 +5030,13 @@
         <argument key="App\Controller\AdminAccountController::delete" type="service" id=".service_locator.0c_I6Iz"/>
         <argument key="App\Controller\AdminAccountController::edit" type="service" id=".service_locator.0c_I6Iz"/>
         <argument key="App\Controller\AdminAccountController::login" type="service" id=".service_locator.oHXyyai"/>
-        <argument key="App\Controller\AdminAdController::index" type="service" id=".service_locator.m2hZxMx"/>
+        <argument key="App\Controller\AdminAdController::index" type="service" id=".service_locator.lIFg_qI"/>
         <argument key="App\Controller\AdminBookingController::delete" type="service" id=".service_locator.SjZfX2U"/>
         <argument key="App\Controller\AdminBookingController::edit" type="service" id=".service_locator.SjZfX2U"/>
-        <argument key="App\Controller\AdminBookingController::index" type="service" id=".service_locator.6lg50HX"/>
+        <argument key="App\Controller\AdminBookingController::index" type="service" id=".service_locator.SIDv2FW"/>
         <argument key="App\Controller\AdminCommentController::delete" type="service" id=".service_locator.6O60kE7"/>
         <argument key="App\Controller\AdminCommentController::edit" type="service" id=".service_locator.6O60kE7"/>
-        <argument key="App\Controller\AdminCommentController::index" type="service" id=".service_locator.BaQbU7t"/>
+        <argument key="App\Controller\AdminCommentController::index" type="service" id=".service_locator.7zQ24yQ"/>
         <argument key="App\Controller\BookingController::book" type="service" id=".service_locator.0c_I6Iz"/>
         <argument key="App\Controller\BookingController::show" type="service" id=".service_locator.SjZfX2U"/>
         <argument key="App\Controller\UserController::index" type="service" id=".service_locator.wypGnUQ"/>
@@ -5038,13 +5052,13 @@
         <argument key="App\Controller\AdminAccountController:delete" type="service" id=".service_locator.0c_I6Iz"/>
         <argument key="App\Controller\AdminAccountController:edit" type="service" id=".service_locator.0c_I6Iz"/>
         <argument key="App\Controller\AdminAccountController:login" type="service" id=".service_locator.oHXyyai"/>
-        <argument key="App\Controller\AdminAdController:index" type="service" id=".service_locator.m2hZxMx"/>
+        <argument key="App\Controller\AdminAdController:index" type="service" id=".service_locator.lIFg_qI"/>
         <argument key="App\Controller\AdminBookingController:delete" type="service" id=".service_locator.SjZfX2U"/>
         <argument key="App\Controller\AdminBookingController:edit" type="service" id=".service_locator.SjZfX2U"/>
-        <argument key="App\Controller\AdminBookingController:index" type="service" id=".service_locator.6lg50HX"/>
+        <argument key="App\Controller\AdminBookingController:index" type="service" id=".service_locator.SIDv2FW"/>
         <argument key="App\Controller\AdminCommentController:delete" type="service" id=".service_locator.6O60kE7"/>
         <argument key="App\Controller\AdminCommentController:edit" type="service" id=".service_locator.6O60kE7"/>
-        <argument key="App\Controller\AdminCommentController:index" type="service" id=".service_locator.BaQbU7t"/>
+        <argument key="App\Controller\AdminCommentController:index" type="service" id=".service_locator.7zQ24yQ"/>
         <argument key="App\Controller\BookingController:book" type="service" id=".service_locator.0c_I6Iz"/>
         <argument key="App\Controller\BookingController:show" type="service" id=".service_locator.SjZfX2U"/>
         <argument key="App\Controller\UserController:index" type="service" id=".service_locator.wypGnUQ"/>
@@ -5473,7 +5487,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.3KyQoqu"/>
+      <argument type="service" id=".service_locator.Qw15n6a"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -5812,7 +5826,7 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.3KyQoqu"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.Qw15n6a"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="validator" alias="debug.validator" public="true"/>

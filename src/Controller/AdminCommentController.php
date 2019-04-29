@@ -9,27 +9,27 @@ use App\Repository\CommentRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\Common\Persistence\ObjectManager;
+use App\Service\PaginationService;
 
 class AdminCommentController extends AbstractController
 {
     /**
-     * @Route("/admin/comments", name="admin_comment_index")
+     * @Route("/admin/comments/{page<\d+>?1}", name="admin_comment_index")
      */
-    //on récupère le repository comments dans la variable repo
-    public function index(CommentRepository $repo)
+    public function index(CommentRepository $repo, $page, PaginationService $pagination)
     {   
-        //on stock le contenu dans la variable comment
-        $comments = $repo->findAll();
+        $pagination->setEntityClass(Comment::class)
+                    ->setPage($page);
 
         return $this->render('admin/comment/index.html.twig', [
-            'comments' => $comments,
+            'pagination' => $pagination
         ]);
     }
 
     /**
      * Permet de modifier un commentaire
      * 
-     * @Route("/admin/comments/{id}/edit", name="admin_comment_edit")
+     * @Route("/admin/comments/{id}/edit",   name="admin_comment_edit")
      * 
      * @return Response
      */
