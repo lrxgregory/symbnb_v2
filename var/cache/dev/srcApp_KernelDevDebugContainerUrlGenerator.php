@@ -55,6 +55,7 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         'admin_comment_index' => [['page'], ['page' => '1', '_controller' => 'App\\Controller\\AdminCommentController::index'], ['page' => '\\d+'], [['variable', '/', '\\d+', 'page', true], ['text', '/admin/comments']], [], []],
         'admin_comment_edit' => [['id'], ['_controller' => 'App\\Controller\\AdminCommentController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/comments']], [], []],
         'admin_comment_delete' => [['id'], ['_controller' => 'App\\Controller\\AdminCommentController::delete'], [], [['text', '/delete'], ['variable', '/', '[^/]++', 'id', true], ['text', '/admin/comments']], [], []],
+        'admin_dashboard' => [[], ['_controller' => 'App\\Controller\\AdminDashboardController::index'], [], [['text', '/admin']], [], []],
         'booking_create' => [['slug'], ['_controller' => 'App\\Controller\\BookingController::book'], [], [['text', '/book'], ['variable', '/', '[^/]++', 'slug', true], ['text', '/ads']], [], []],
         'booking_show' => [['id'], ['_controller' => 'App\\Controller\\BookingController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/booking']], [], []],
         'homepage' => [[], ['_controller' => 'App\\Controller\\HomeController::home'], [], [['text', '/']], [], []],

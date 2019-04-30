@@ -95,86 +95,95 @@ class __TwigTemplate_54f41f93923d8c9259fd29e37b5249b20880c50fdb7688ece2da5dc2ac5
         <h2 class=\"h1 my-5\">Nos appartements stars</h2>
 
         <div class=\"row\">
-            <div class=\"col-md-4\">
-                <div class=\"card bg-light mb-3\">
-                    <div class=\"card-header text-center\">
-                        <p>3 chambres, <strong>49&euro</strong><br>
-                        <small>Pas encore noté</small></p>
-                    </div>
-
-                    <img src=\"http://placehold.it/1000x400\" alt=\"Image de l'appartement\" style=\"height: 200px; width: 100%; display: block\">
-
-                    <div class=\"card-body\">
-                        <h4 class=\"card-title\">Bel Appartement</h4>
-                        <p class=\"card-text\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit, delectus suscipit sapiente expedita vero possimus! Hic est numquam sit.</p>
-                        <a href=\"#\" class=\"btn btn-secondary\">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-            <div class=\"col-md-4\">
-                <div class=\"card bg-light mb-3\">
-                    <div class=\"card-header text-center\">
-                        <p>3 chambres, <strong>49&euro</strong><br>
-                        <small>Pas encore noté</small></p>
-                    </div>
-
-                    <img src=\"http://placehold.it/1000x400\" alt=\"Image de l'appartement\" style=\"height: 200px; width: 100%; display: block\">
-
-                    <div class=\"card-body\">
-                        <h4 class=\"card-title\">Bel Appartement</h4>
-                        <p class=\"card-text\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit, delectus suscipit sapiente expedita vero possimus! Hic est numquam sit.</p>
-                        <a href=\"#\" class=\"btn btn-secondary\">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-            <div class=\"col-md-4\">
-                <div class=\"card bg-light mb-3\">
-                    <div class=\"card-header text-center\">
-                        <p>3 chambres, <strong>49&euro</strong><br>
-                        <small>Pas encore noté</small></p>
-                    </div>
-
-                    <img src=\"http://placehold.it/1000x400\" alt=\"Image de l'appartement\" style=\"height: 200px; width: 100%; display: block\">
-
-                    <div class=\"card-body\">
-                        <h4 class=\"card-title\">Bel Appartement</h4>
-                        <p class=\"card-text\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit, delectus suscipit sapiente expedita vero possimus! Hic est numquam sit.</p>
-                        <a href=\"#\" class=\"btn btn-secondary\">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            ";
+        // line 20
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["ads"]) || array_key_exists("ads", $context) ? $context["ads"] : (function () { throw new RuntimeError('Variable "ads" does not exist.', 20, $this->source); })()));
+        $context['loop'] = [
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        ];
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof \Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
+        foreach ($context['_seq'] as $context["_key"] => $context["data"]) {
+            // line 21
+            echo "                ";
+            $this->loadTemplate("ad/_ad.html.twig", "home/index.html.twig", 21)->display(twig_array_merge($context, ["ad" => twig_get_attribute($this->env, $this->source, $context["data"], "annonce", [])]));
+            // line 22
+            echo "            ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['data'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 23
+        echo "        </div>
 
         <h2 class=\"h1 my-5\">Nos propriétaires stars</h2>
 
         <div class=\"row\">
-            <div class=\"col\">
+            ";
+        // line 28
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 28, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["data"]) {
+            // line 29
+            echo "            <div class=\"col\">
                 <div class=\"card border-secondary mb-3\">
                     <div class=\"card-body\">
-                        <div class=\"card-title\">Philipe Legros</div>
+                        <h4 class=\"card-title\">";
+            // line 32
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["data"], "user", []), "fullName", []), "html", null, true);
+            echo "</h4>
                         <hr>
                         <div class=\"card-text\">
-                            <img src=\"http://placehold.it/64x64\" alt=\"Avatar du propriétaire\" class=\"float-left-mr-3\">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nobis repellendus placeat est! Similique, magni sapiente. Recusandae exercitationem perferendis consectetur.</p>
-                            <a href=\"#\" class=\"btn btn-success float-right\">En savoir plus</a>
+                            <div class=\"row\">
+                                <div class=\"col-4\">
+                                <img src=\"";
+            // line 37
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["data"], "user", []), "picture", []), "html", null, true);
+            echo "\" alt=\"Avatar de ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["data"], "user", []), "fullName", []), "html", null, true);
+            echo "\" class=\"float-left-mr-3\">
+                            </div>
+                            <div class=\"col-8\">
+                                <p>";
+            // line 40
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["data"], "user", []), "introduction", []), "html", null, true);
+            echo "</p>
+                            </div>
+                            </div>
+                            
+                            
+                            <a href=\"";
+            // line 45
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_show", ["slug" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["data"], "user", []), "slug", [])]), "html", null, true);
+            echo "\" class=\"btn btn-success float-right\">En savoir plus</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class=\"col\">
-                <div class=\"card border-secondary mb-3\">
-                    <div class=\"card-body\">
-                        <div class=\"card-title\">Louis Lebourg</div>
-                        <hr>
-                        <div class=\"card-text\">
-                            <img src=\"http://placehold.it/64x64\" alt=\"Avatar du propriétaire\" class=\"float-left-mr-3\">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nobis repellendus placeat est! Similique, magni sapiente. Recusandae exercitationem perferendis consectetur.</p>
-                            <a href=\"#\" class=\"btn btn-success float-right\">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['data'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 51
+        echo "        </div>
         
 </div>
     
@@ -199,7 +208,7 @@ class __TwigTemplate_54f41f93923d8c9259fd29e37b5249b20880c50fdb7688ece2da5dc2ac5
 
     public function getDebugInfo()
     {
-        return array (  84 => 6,  75 => 5,  57 => 3,  27 => 1,);
+        return array (  186 => 51,  174 => 45,  166 => 40,  158 => 37,  150 => 32,  145 => 29,  141 => 28,  134 => 23,  120 => 22,  117 => 21,  100 => 20,  84 => 6,  75 => 5,  57 => 3,  27 => 1,);
     }
 
     public function getSourceContext()
@@ -223,85 +232,37 @@ class __TwigTemplate_54f41f93923d8c9259fd29e37b5249b20880c50fdb7688ece2da5dc2ac5
         <h2 class=\"h1 my-5\">Nos appartements stars</h2>
 
         <div class=\"row\">
-            <div class=\"col-md-4\">
-                <div class=\"card bg-light mb-3\">
-                    <div class=\"card-header text-center\">
-                        <p>3 chambres, <strong>49&euro</strong><br>
-                        <small>Pas encore noté</small></p>
-                    </div>
-
-                    <img src=\"http://placehold.it/1000x400\" alt=\"Image de l'appartement\" style=\"height: 200px; width: 100%; display: block\">
-
-                    <div class=\"card-body\">
-                        <h4 class=\"card-title\">Bel Appartement</h4>
-                        <p class=\"card-text\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit, delectus suscipit sapiente expedita vero possimus! Hic est numquam sit.</p>
-                        <a href=\"#\" class=\"btn btn-secondary\">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-            <div class=\"col-md-4\">
-                <div class=\"card bg-light mb-3\">
-                    <div class=\"card-header text-center\">
-                        <p>3 chambres, <strong>49&euro</strong><br>
-                        <small>Pas encore noté</small></p>
-                    </div>
-
-                    <img src=\"http://placehold.it/1000x400\" alt=\"Image de l'appartement\" style=\"height: 200px; width: 100%; display: block\">
-
-                    <div class=\"card-body\">
-                        <h4 class=\"card-title\">Bel Appartement</h4>
-                        <p class=\"card-text\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit, delectus suscipit sapiente expedita vero possimus! Hic est numquam sit.</p>
-                        <a href=\"#\" class=\"btn btn-secondary\">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
-            <div class=\"col-md-4\">
-                <div class=\"card bg-light mb-3\">
-                    <div class=\"card-header text-center\">
-                        <p>3 chambres, <strong>49&euro</strong><br>
-                        <small>Pas encore noté</small></p>
-                    </div>
-
-                    <img src=\"http://placehold.it/1000x400\" alt=\"Image de l'appartement\" style=\"height: 200px; width: 100%; display: block\">
-
-                    <div class=\"card-body\">
-                        <h4 class=\"card-title\">Bel Appartement</h4>
-                        <p class=\"card-text\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit, delectus suscipit sapiente expedita vero possimus! Hic est numquam sit.</p>
-                        <a href=\"#\" class=\"btn btn-secondary\">En savoir plus</a>
-                    </div>
-                </div>
-            </div>
+            {% for data in ads %}
+                {% include 'ad/_ad.html.twig' with {'ad': data.annonce} %}
+            {% endfor %}
         </div>
 
         <h2 class=\"h1 my-5\">Nos propriétaires stars</h2>
 
         <div class=\"row\">
+            {% for data in users %}
             <div class=\"col\">
                 <div class=\"card border-secondary mb-3\">
                     <div class=\"card-body\">
-                        <div class=\"card-title\">Philipe Legros</div>
+                        <h4 class=\"card-title\">{{data.user.fullName}}</h4>
                         <hr>
                         <div class=\"card-text\">
-                            <img src=\"http://placehold.it/64x64\" alt=\"Avatar du propriétaire\" class=\"float-left-mr-3\">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nobis repellendus placeat est! Similique, magni sapiente. Recusandae exercitationem perferendis consectetur.</p>
-                            <a href=\"#\" class=\"btn btn-success float-right\">En savoir plus</a>
+                            <div class=\"row\">
+                                <div class=\"col-4\">
+                                <img src=\"{{data.user.picture}}\" alt=\"Avatar de {{data.user.fullName}}\" class=\"float-left-mr-3\">
+                            </div>
+                            <div class=\"col-8\">
+                                <p>{{data.user.introduction}}</p>
+                            </div>
+                            </div>
+                            
+                            
+                            <a href=\"{{ path('user_show', {'slug': data.user.slug}) }}\" class=\"btn btn-success float-right\">En savoir plus</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class=\"col\">
-                <div class=\"card border-secondary mb-3\">
-                    <div class=\"card-body\">
-                        <div class=\"card-title\">Louis Lebourg</div>
-                        <hr>
-                        <div class=\"card-text\">
-                            <img src=\"http://placehold.it/64x64\" alt=\"Avatar du propriétaire\" class=\"float-left-mr-3\">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nobis repellendus placeat est! Similique, magni sapiente. Recusandae exercitationem perferendis consectetur.</p>
-                            <a href=\"#\" class=\"btn btn-success float-right\">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         
 </div>

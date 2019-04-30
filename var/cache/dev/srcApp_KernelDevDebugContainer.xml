@@ -433,6 +433,13 @@
         <argument type="service" id=".service_locator.KTVqfp6.App\Controller\AdminCommentController"/>
       </call>
     </service>
+    <service id="App\Controller\AdminDashboardController" class="App\Controller\AdminDashboardController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\AdminDashboardController"/>
+      </call>
+    </service>
     <service id="App\Controller\BookingController" class="App\Controller\BookingController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -522,6 +529,9 @@
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="twig"/>
       <argument type="service" id="request_stack"/>
+    </service>
+    <service id="App\Service\StatsService" class="App\Service\StatsService" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -4729,6 +4739,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminCommentController" class="App\Controller\AdminCommentController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminCommentController" class="App\Controller\AdminCommentController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminCommentController" class="App\Controller\AdminCommentController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminDashboardController" class="App\Controller\AdminDashboardController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminDashboardController" class="App\Controller\AdminDashboardController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\AdminDashboardController" class="App\Controller\AdminDashboardController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\BookingController" class="App\Controller\BookingController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\BookingController" class="App\Controller\BookingController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\BookingController" class="App\Controller\BookingController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5009,13 +5022,27 @@
         <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
       </argument>
     </service>
+    <service id=".service_locator.9NXKdXr" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="manager" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="statsService" type="service" id="App\Service\StatsService"/>
+      </argument>
+    </service>
+    <service id=".service_locator.RUUfoyn" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="adRepo" type="service" id="App\Repository\AdRepository"/>
+        <argument key="userRepo" type="service" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.wypGnUQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="user" type="service" id=".errored..service_locator.wypGnUQ.App\Entity\User"/>
       </argument>
     </service>
-    <service id=".service_locator.Qw15n6a" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.AvDpnzW" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AccountController::login" type="service" id=".service_locator.oHXyyai"/>
@@ -5037,8 +5064,10 @@
         <argument key="App\Controller\AdminCommentController::delete" type="service" id=".service_locator.6O60kE7"/>
         <argument key="App\Controller\AdminCommentController::edit" type="service" id=".service_locator.6O60kE7"/>
         <argument key="App\Controller\AdminCommentController::index" type="service" id=".service_locator.7zQ24yQ"/>
+        <argument key="App\Controller\AdminDashboardController::index" type="service" id=".service_locator.9NXKdXr"/>
         <argument key="App\Controller\BookingController::book" type="service" id=".service_locator.0c_I6Iz"/>
         <argument key="App\Controller\BookingController::show" type="service" id=".service_locator.SjZfX2U"/>
+        <argument key="App\Controller\HomeController::home" type="service" id=".service_locator.RUUfoyn"/>
         <argument key="App\Controller\UserController::index" type="service" id=".service_locator.wypGnUQ"/>
         <argument key="App\Controller\AccountController:login" type="service" id=".service_locator.oHXyyai"/>
         <argument key="App\Controller\AccountController:profile" type="service" id=".service_locator.Txvqv4R"/>
@@ -5059,8 +5088,10 @@
         <argument key="App\Controller\AdminCommentController:delete" type="service" id=".service_locator.6O60kE7"/>
         <argument key="App\Controller\AdminCommentController:edit" type="service" id=".service_locator.6O60kE7"/>
         <argument key="App\Controller\AdminCommentController:index" type="service" id=".service_locator.7zQ24yQ"/>
+        <argument key="App\Controller\AdminDashboardController:index" type="service" id=".service_locator.9NXKdXr"/>
         <argument key="App\Controller\BookingController:book" type="service" id=".service_locator.0c_I6Iz"/>
         <argument key="App\Controller\BookingController:show" type="service" id=".service_locator.SjZfX2U"/>
+        <argument key="App\Controller\HomeController:home" type="service" id=".service_locator.RUUfoyn"/>
         <argument key="App\Controller\UserController:index" type="service" id=".service_locator.wypGnUQ"/>
       </argument>
     </service>
@@ -5377,6 +5408,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.KTVqfp6" method="withContext"/>
     </service>
+    <service id=".service_locator.KTVqfp6.App\Controller\AdminDashboardController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\AdminDashboardController"/>
+      <argument>App\Controller\AdminDashboardController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.KTVqfp6" method="withContext"/>
+    </service>
     <service id=".service_locator.KTVqfp6.App\Controller\BookingController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\BookingController"/>
       <argument>App\Controller\BookingController</argument>
@@ -5487,7 +5524,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.Qw15n6a"/>
+      <argument type="service" id=".service_locator.AvDpnzW"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -5826,7 +5863,7 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.Qw15n6a"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.AvDpnzW"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="validator" alias="debug.validator" public="true"/>
